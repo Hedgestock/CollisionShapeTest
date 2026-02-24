@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://de0f4fl0deci5"]
+
+[ext_resource type="Texture2D" uid="uid://ceutwoivfq68e" path="res://icon.svg" id="1_04r5t"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bb33i"]
+radius = 50.0
+height = 200.0
+
+[node name="Capsule" type="RigidBody2D" unique_id=1654651269]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1105917646]
+texture = ExtResource("1_04r5t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2063235160]
+shape = SubResource("CapsuleShape2D_bb33i")
+rendering = true
+
+[node name="Label" type="Label" parent="." unique_id=468784811]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.0
+offset_top = -100.0
+offset_right = 22.0
+offset_bottom = -77.0
+grow_horizontal = 2
+text = "capsule
+rendering"
+horizontal_alignment = 1

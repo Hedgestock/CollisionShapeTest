@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://cye2jy0air6ev"]
+
+[ext_resource type="Script" uid="uid://co8llwvm7uplq" path="res://Scenes/2d_test.gd" id="1_y473c"]
+[ext_resource type="PackedScene" uid="uid://csor3hmch4g8h" path="res://Assets/2D/capsule.tscn" id="2_pn028"]
+[ext_resource type="PackedScene" uid="uid://c1qu438xa8opd" path="res://Assets/2D/circle.tscn" id="3_2r04a"]
+[ext_resource type="PackedScene" uid="uid://cnudbyu8t8r45" path="res://Assets/2D/rectangle.tscn" id="4_c0wcu"]
+[ext_resource type="PackedScene" uid="uid://de0f4fl0deci5" path="res://Assets/2D/capsule_rendering.tscn" id="5_3777s"]
+[ext_resource type="PackedScene" uid="uid://duv6uhaodkke1" path="res://Assets/2D/circle_rendering.tscn" id="6_5q8co"]
+[ext_resource type="PackedScene" uid="uid://b05c2mkfeqqyw" path="res://Assets/2D/rectangle_rendering.tscn" id="7_ye0ve"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pn028"]
+
+[node name="2DTest" type="Node2D" unique_id=835800510]
+script = ExtResource("1_y473c")
+objects = Array[PackedScene]([ExtResource("2_pn028"), ExtResource("3_2r04a"), ExtResource("4_c0wcu"), ExtResource("5_3777s"), ExtResource("6_5q8co"), ExtResource("7_ye0ve")])
+
+[node name="Capsule" parent="." unique_id=1654651269 instance=ExtResource("2_pn028")]
+position = Vector2(671, 344)
+
+[node name="Capsule2" parent="." unique_id=1751032898 instance=ExtResource("5_3777s")]
+position = Vector2(634, 638)
+
+[node name="Circle" parent="." unique_id=136909721 instance=ExtResource("3_2r04a")]
+position = Vector2(1245, 316)
+
+[node name="Circle2" parent="." unique_id=1393695604 instance=ExtResource("6_5q8co")]
+position = Vector2(1238, 639)
+
+[node name="Rectangle" parent="." unique_id=175018248 instance=ExtResource("4_c0wcu")]
+position = Vector2(928, 346)
+
+[node name="Rectangle2" parent="." unique_id=958989354 instance=ExtResource("7_ye0ve")]
+position = Vector2(927, 663)
+
+[node name="wall_left" type="StaticBody2D" parent="." unique_id=264601224]
+position = Vector2(200, 540)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_left" unique_id=26793948]
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_pn028")
+rendering = true
+
+[node name="wall_right" type="StaticBody2D" parent="." unique_id=2087414809]
+position = Vector2(1720, 540)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_right" unique_id=48285581]
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_pn028")
+rendering = true
+
+[node name="floor" type="StaticBody2D" parent="." unique_id=1221689932]
+position = Vector2(960, 900)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor" unique_id=635705713]
+shape = SubResource("WorldBoundaryShape2D_pn028")
+rendering = true
+
+[node name="CheckButton" type="CheckButton" parent="." unique_id=1648478395]
+offset_right = 44.0
+offset_bottom = 24.0
+text = "All rendering"
+
+[connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://duv6uhaodkke1"]
+
+[ext_resource type="Texture2D" uid="uid://ceutwoivfq68e" path="res://icon.svg" id="1_n1qa7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1bvfs"]
+radius = 100.0
+
+[node name="Circle" type="RigidBody2D" unique_id=1654651269]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1105917646]
+texture = ExtResource("1_n1qa7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2063235160]
+shape = SubResource("CircleShape2D_1bvfs")
+rendering = true
+
+[node name="Label" type="Label" parent="." unique_id=468784811]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.0
+offset_top = -100.0
+offset_right = 22.0
+offset_bottom = -77.0
+grow_horizontal = 2
+text = "circle
+rendering"
+horizontal_alignment = 1
