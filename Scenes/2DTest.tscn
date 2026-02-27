@@ -80,8 +80,6 @@ position = Vector2(328, 406)
 node_a = NodePath("../Circle2")
 node_b = NodePath("../StaticBody2D")
 disable_collision = false
-rest_length = 30.0
-stiffness = 64.0
 
 [node name="Circle2" parent="." unique_id=184128990 instance=ExtResource("3_2r04a")]
 position = Vector2(300, 548)
