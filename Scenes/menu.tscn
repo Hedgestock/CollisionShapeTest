@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bdmu54vqd6dxg" path="res://Scenes/menu.gd" id="1_1rerr"]
 
+[sub_resource type="Theme" id="Theme_1rerr"]
+default_base_scale = 2.0
+
 [node name="Menu" type="CanvasLayer" unique_id=2134339627]
 script = ExtResource("1_1rerr")
 
@@ -17,14 +20,15 @@ offset_right = 71.0
 offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_1rerr")
 
 [node name="2DButton" type="Button" parent="VBoxContainer" unique_id=1969997213]
 layout_mode = 2
 text = "CollisionShape2D"
 
 [node name="3DButton" type="Button" parent="VBoxContainer" unique_id=335785285]
-visible = false
 layout_mode = 2
 text = "CollisionShape3D"
 
-[connection signal="pressed" from="VBoxContainer/2DButton" to="." method="_on_d_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/2DButton" to="." method="_on_2d_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/3DButton" to="." method="_on_3d_button_pressed"]

@@ -1,17 +1,17 @@
-[gd_scene format=3 uid="uid://c1qu438xa8opd"]
+[gd_scene format=3 uid="uid://qb7duy3448lb"]
 
-[ext_resource type="Texture2D" uid="uid://ceutwoivfq68e" path="res://icon.svg" id="1_x7jry"]
+[ext_resource type="Texture2D" uid="uid://ceutwoivfq68e" path="res://icon.svg" id="1_mfpcv"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_1bvfs"]
-radius = 75.0
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_mfpcv"]
+length = 137.0
 
-[node name="Circle" type="RigidBody2D" unique_id=1654651269]
+[node name="Raycast" type="RigidBody2D" unique_id=1654651269]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1105917646]
-texture = ExtResource("1_x7jry")
+texture = ExtResource("1_mfpcv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2063235160]
-shape = SubResource("CircleShape2D_1bvfs")
+shape = SubResource("SeparationRayShape2D_mfpcv")
 
 [node name="Label" type="Label" parent="." unique_id=468784811]
 anchors_preset = 5
@@ -22,6 +22,6 @@ offset_top = -100.0
 offset_right = 22.0
 offset_bottom = -77.0
 grow_horizontal = 2
-text = "circle
+text = "separation ray
 not rendering"
 horizontal_alignment = 1

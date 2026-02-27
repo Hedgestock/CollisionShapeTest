@@ -7,30 +7,37 @@
 [ext_resource type="PackedScene" uid="uid://de0f4fl0deci5" path="res://Assets/2D/capsule_rendering.tscn" id="5_3777s"]
 [ext_resource type="PackedScene" uid="uid://duv6uhaodkke1" path="res://Assets/2D/circle_rendering.tscn" id="6_5q8co"]
 [ext_resource type="PackedScene" uid="uid://b05c2mkfeqqyw" path="res://Assets/2D/rectangle_rendering.tscn" id="7_ye0ve"]
+[ext_resource type="PackedScene" uid="uid://dqk1wpjr3kfg4" path="res://Assets/2D/separation_ray_rendering.tscn" id="8_c0wcu"]
+[ext_resource type="PackedScene" uid="uid://qb7duy3448lb" path="res://Assets/2D/separation_ray.tscn" id="9_3777s"]
+[ext_resource type="PackedScene" uid="uid://coxtdavfm0064" path="res://Assets/2D/raycast_rendering.tscn" id="10_3777s"]
+[ext_resource type="PackedScene" uid="uid://druhs3ld2iahb" path="res://Assets/2D/polygon.tscn" id="10_iqaeq"]
+[ext_resource type="PackedScene" uid="uid://dyaryr0xs4jte" path="res://Assets/2D/polygon_rendering.tscn" id="11_5q8co"]
+[ext_resource type="PackedScene" uid="uid://c2afm0awn3qsp" path="res://Assets/2D/shapecast.tscn" id="12_pn4t2"]
+[ext_resource type="PackedScene" uid="uid://djn22wtlwrcef" path="res://Assets/2D/shapecast_rendering.tscn" id="13_sapxp"]
+[ext_resource type="PackedScene" uid="uid://dndbu1yrxdvwn" path="res://Assets/2D/raycast.tscn" id="14_s4ia4"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pn028"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_iqaeq"]
+
 [node name="2DTest" type="Node2D" unique_id=835800510]
 script = ExtResource("1_y473c")
-objects = Array[PackedScene]([ExtResource("2_pn028"), ExtResource("3_2r04a"), ExtResource("4_c0wcu"), ExtResource("5_3777s"), ExtResource("6_5q8co"), ExtResource("7_ye0ve")])
+objects = Array[PackedScene]([ExtResource("2_pn028"), ExtResource("3_2r04a"), ExtResource("4_c0wcu"), ExtResource("5_3777s"), ExtResource("6_5q8co"), ExtResource("7_ye0ve"), ExtResource("9_3777s"), ExtResource("8_c0wcu"), ExtResource("10_iqaeq"), ExtResource("11_5q8co"), ExtResource("12_pn4t2"), ExtResource("13_sapxp"), ExtResource("14_s4ia4"), ExtResource("10_3777s")])
 
-[node name="Capsule" parent="." unique_id=1654651269 instance=ExtResource("2_pn028")]
-position = Vector2(671, 344)
+[node name="Capsule" parent="." unique_id=1751032898 instance=ExtResource("5_3777s")]
+position = Vector2(1469, 581)
 
-[node name="Capsule2" parent="." unique_id=1751032898 instance=ExtResource("5_3777s")]
-position = Vector2(634, 638)
+[node name="Circle" parent="." unique_id=1393695604 instance=ExtResource("6_5q8co")]
+position = Vector2(1316, 580)
 
-[node name="Circle" parent="." unique_id=136909721 instance=ExtResource("3_2r04a")]
-position = Vector2(1245, 316)
+[node name="Rectangle" parent="." unique_id=958989354 instance=ExtResource("7_ye0ve")]
+position = Vector2(1131, 568)
 
-[node name="Circle2" parent="." unique_id=1393695604 instance=ExtResource("6_5q8co")]
-position = Vector2(1238, 639)
+[node name="SeparationRay" parent="." unique_id=1349682065 instance=ExtResource("8_c0wcu")]
+position = Vector2(978, 565)
 
-[node name="Rectangle" parent="." unique_id=175018248 instance=ExtResource("4_c0wcu")]
-position = Vector2(928, 346)
-
-[node name="Rectangle2" parent="." unique_id=958989354 instance=ExtResource("7_ye0ve")]
-position = Vector2(927, 663)
+[node name="Raycast" parent="." unique_id=1654651269 instance=ExtResource("10_3777s")]
+position = Vector2(838, 579)
 
 [node name="wall_left" type="StaticBody2D" parent="." unique_id=264601224]
 position = Vector2(200, 540)
@@ -55,9 +62,26 @@ position = Vector2(960, 900)
 shape = SubResource("WorldBoundaryShape2D_pn028")
 rendering = true
 
-[node name="CheckButton" type="CheckButton" parent="." unique_id=1648478395]
-offset_right = 44.0
-offset_bottom = 24.0
-text = "All rendering"
+[node name="Polygon" parent="." unique_id=1856654382 instance=ExtResource("11_5q8co")]
+position = Vector2(1624, 573)
 
-[connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
+[node name="Shapecast" parent="." unique_id=816803476 instance=ExtResource("13_sapxp")]
+position = Vector2(689, 580)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=262140929]
+position = Vector2(328, 406)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=356917192]
+shape = SubResource("CircleShape2D_iqaeq")
+rendering = true
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="." unique_id=1341405569]
+position = Vector2(328, 406)
+node_a = NodePath("../Circle2")
+node_b = NodePath("../StaticBody2D")
+disable_collision = false
+rest_length = 30.0
+stiffness = 64.0
+
+[node name="Circle2" parent="." unique_id=184128990 instance=ExtResource("3_2r04a")]
+position = Vector2(300, 548)

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bohkal6j228yl"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7qk6q"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7qk6q"]
+
+[node name="3DTest" type="Node3D" unique_id=1283275697]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1831383235]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=251140696]
+shape = SubResource("WorldBoundaryShape3D_7qk6q")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2014714036]
+transform = Transform3D(1, 0, 0, 0, 0.9615563, 0.27460802, 0, -0.27460802, 0.9615563, 0, 4.087048, 9.568245)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=808813891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9060326, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1252012607]
+shape = SubResource("SphereShape3D_7qk6q")

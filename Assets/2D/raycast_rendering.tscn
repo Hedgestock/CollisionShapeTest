@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://coxtdavfm0064"]
+
+[ext_resource type="Texture2D" uid="uid://ceutwoivfq68e" path="res://icon.svg" id="1_pfqt6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_btobo"]
+size = Vector2(100, 100)
+
+[node name="Raycast" type="RigidBody2D" unique_id=1654651269]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1105917646]
+texture = ExtResource("1_pfqt6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2063235160]
+shape = SubResource("RectangleShape2D_btobo")
+
+[node name="Label" type="Label" parent="." unique_id=468784811]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.0
+offset_top = -100.0
+offset_right = 22.0
+offset_bottom = -77.0
+grow_horizontal = 2
+text = "raycast
+rendering"
+horizontal_alignment = 1
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1204525447]
+target_position = Vector2(0, 100)
+rendering = true

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dyaryr0xs4jte"]
+
+[ext_resource type="Texture2D" uid="uid://ceutwoivfq68e" path="res://icon.svg" id="1_41n4q"]
+
+[node name="Polygon" type="RigidBody2D" unique_id=1654651269]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1105917646]
+texture = ExtResource("1_41n4q")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1678497092]
+polygon = PackedVector2Array(0, 10, -50, 50, -50, -50, 50, -50, 50, 50)
+rendering = true
+
+[node name="Label" type="Label" parent="." unique_id=468784811]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.0
+offset_top = -100.0
+offset_right = 22.0
+offset_bottom = -77.0
+grow_horizontal = 2
+text = "polygon
+rendering"
+horizontal_alignment = 1

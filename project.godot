@@ -21,9 +21,9 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="viewport"
 
-[gui]
+[dotnet]
 
-theme/default_theme_scale=3.0
+project/assembly_name="CollisionShapeTest"
 
 [physics]
 
